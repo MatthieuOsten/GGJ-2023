@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class CustomerManager : MonoBehaviour
     private void Start()
     {
         GenerateCustomers();
+        _timerSpawn.Start();
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class CustomerManager : MonoBehaviour
         if (_timerSpawn.Update())
         {
             ActivateCustomer();
+            _timerSpawn.Restart();
         }
     }
 
@@ -40,14 +43,17 @@ public class CustomerManager : MonoBehaviour
     /// <summary>
     /// Active a random customer
     /// </summary>
-    private void ActivateCustomer()
+    public void ActivateCustomer()
     {
         // Get customer
         int indexCustomer = Random.Range(0, _prefabsCustomers.Length);
 
         GameObject actualCustomer = GetInactiveCustomer(indexCustomer);
 
-        if (actualCustomer == null) { return; }
+        if (actualCustomer == null) {
+            Debug.LogWarning("Customer is null");
+            return; 
+        }
 
         // Get availible spawn of customer
         List<Transform> availibleSpawn = new List<Transform>();
@@ -101,12 +107,12 @@ public class CustomerManager : MonoBehaviour
     /// Get active customer from index of variant
     /// </summary>
     /// <param name="index">index of prefabs</param>
-    /// <returns></returns>
+    /// <returns>If null not have disponible customer</returns>
     private GameObject GetInactiveCustomer(int index)
     {
         foreach (var customer in _transformsCustomers[index])
         {
-            if (customer.gameObject.activeSelf)
+            if (!customer.gameObject.activeSelf)
             {
                 return customer;
             }
