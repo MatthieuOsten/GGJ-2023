@@ -336,7 +336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1756902431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e13fca91f1d8bc70c9de531e463b0204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseZ: 5
