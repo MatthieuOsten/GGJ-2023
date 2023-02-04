@@ -11,13 +11,14 @@ public class Score : MonoBehaviour
     private bool _animate_text;
     private float _timer = 0.25f;
     [SerializeField] private TMP_Text _TextScore;
-
+    [SerializeField] private TMP_Text _TextHighscore;
     [SerializeField] private HighScore _scorehig;
     
     void Start()
     {
         _score = 0;
         _animate_text = false;
+        DisableHighscore();
     }
 
     private void Update()
@@ -41,7 +42,6 @@ public class Score : MonoBehaviour
         _animate_text = true;
         _TextScore.fontSize = 100;
     }
-
     public void CheckHighScore()
     {
         if (_score > _scorehig.first_score)
@@ -59,5 +59,28 @@ public class Score : MonoBehaviour
         {
             _scorehig.third_score = _score;
         }
+    }
+
+    public void EnableScore()
+    {
+        _TextScore.gameObject.SetActive(true);
+    }
+    
+    public void DisableScore()
+    {
+        _TextScore.gameObject.SetActive(false);
+    }
+    public void EnableHighscore()
+    {
+        _TextHighscore.gameObject.SetActive(true);
+    }
+    
+    public void DisableHighscore()
+    {
+        _TextHighscore.gameObject.SetActive(false);
+    }
+    public void Update_highscore()
+    {
+        _TextHighscore.text = "HighScore\n\n1. " + _scorehig.first_score.ToString() + "\n2. " + _scorehig.second_score.ToString() + "\n3. " + _scorehig.third_score.ToString();
     }
 }
