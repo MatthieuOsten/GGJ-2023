@@ -14,6 +14,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private GameObject[] _prefabsCustomers = new GameObject[0];
     [SerializeField] private List<GameObject[]> _transformsCustomers = new List<GameObject[]>();
 
+    [System.Serializable]
     private struct SpawnPoint
     {
         public Transform point;
@@ -27,11 +28,14 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
+        _timerSpawn.Start();
         GenerateCustomers();
+        ActivateCustomer();
     }
 
     private void Update()
     {
+
         // Spawn customer after intervale
         if (_timerSpawn.Update())
         {

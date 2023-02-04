@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -186,16 +186,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsOfSpawn:
-  - {fileID: 926008652}
-  - {fileID: 1951015906}
-  - {fileID: 1672691850}
-  - {fileID: 593115673}
-  - {fileID: 1933044045}
-  _spawnIsAvailible: 0000000000
+  - point: {fileID: 926008652}
+    isAvaible: 1
+  - point: {fileID: 1951015906}
+    isAvaible: 1
+  - point: {fileID: 1672691850}
+    isAvaible: 1
   _timerSpawn:
     _time: 0
     _timePassed: 0
-    _timer: 0
+    _timer: 5
     _speed: 0
     _play: 0
     _finish: 0
