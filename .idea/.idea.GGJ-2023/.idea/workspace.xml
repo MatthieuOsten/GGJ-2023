@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db02d1ae-6349-4ed5-8999-3d74b84f2440" name="Changes" comment="" />
+    <list default="true" id="db02d1ae-6349-4ed5-8999-3d74b84f2440" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/00-Scenes/_Prototype/Proto_DragNDrop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00-Scenes/_Prototype/Proto_DragNDrop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Capsule.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Capsule.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cube.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cube.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sphere.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sphere.prefab.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675503660459</updated>
-      <workItem from="1675503668970" duration="26706000" />
+      <workItem from="1675503668970" duration="27333000" />
     </task>
     <servers />
   </component>
