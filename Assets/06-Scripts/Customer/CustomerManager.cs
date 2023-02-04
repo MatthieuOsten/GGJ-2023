@@ -5,8 +5,7 @@ using UnityEngine;
 public class CustomerManager : MonoBehaviour
 {
     [Space(5), Header("SPAWN"), Space(5)]
-    [SerializeField] private Transform[] _pointsOfSpawn = new Transform[0];
-    [SerializeField] private bool[] _spawnIsAvailible = new bool[0];
+    [SerializeField] private SpawnPoint[] _pointsOfSpawn = new SpawnPoint[0];
 
     [Header("COOLDOWN")]
     [SerializeField] private Timer _timerSpawn;
@@ -14,6 +13,17 @@ public class CustomerManager : MonoBehaviour
     [Space(5), Header("PREFABS"), Space(5)]
     [SerializeField] private GameObject[] _prefabsCustomers = new GameObject[0];
     [SerializeField] private List<GameObject[]> _transformsCustomers = new List<GameObject[]>();
+
+    private struct SpawnPoint
+    {
+        public Transform point;
+        public bool isAvaible;
+
+        public void SetAvaible(bool value)
+        {
+            isAvaible= value;
+        }
+    }
 
     private void Start()
     {
@@ -29,14 +39,6 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        // Set number of bool from spawn on point of spawn list
-      if (_pointsOfSpawn.Length != _spawnIsAvailible.Length) { _spawnIsAvailible = new bool[_pointsOfSpawn.Length]; }  
-    }
-#endif
-
     /// <summary>
     /// Active a random customer
     /// </summary>
@@ -50,23 +52,22 @@ public class CustomerManager : MonoBehaviour
         if (actualCustomer == null) { return; }
 
         // Get availible spawn of customer
-        List<Transform> availibleSpawn = new List<Transform>();
 
-        for (int i = 0; i < _pointsOfSpawn.Length; i++)
+        foreach (var spawn in _pointsOfSpawn)
         {
-            if (i < _spawnIsAvailible.Length && _pointsOfSpawn[i] != null)
+            if (spawn.isAvaible)
             {
-                if (_spawnIsAvailible[i])
-                {
-                    availibleSpawn.Add(_pointsOfSpawn[i]);
-                }
+                // Teleport Customer on point of spawn
+                actualCustomer.transform.position = spawn.point.position;
+                actualCustomer.SetActive(true);
+
+                spawn.SetAvaible(false);
+
+                break;
             }
         }
 
-        // Teleport Customer on point of spawn
 
-        actualCustomer.transform.position = availibleSpawn[Random.Range(0, availibleSpawn.Count)].position;
-        actualCustomer.SetActive(true);
 
     }
 
@@ -76,12 +77,6 @@ public class CustomerManager : MonoBehaviour
     private void GenerateCustomers()
     {
         _transformsCustomers = new List<GameObject[]>();
-
-        _spawnIsAvailible = new bool[_pointsOfSpawn.Length];
-        for (int i = 0; i < _spawnIsAvailible.Length; i++)
-        {
-            _spawnIsAvailible[i] = true;
-        }
 
         // Create the number of list from number of prefabs
         for (int i = 0; i < _prefabsCustomers.Length; i++)
