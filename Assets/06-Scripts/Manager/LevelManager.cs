@@ -6,22 +6,6 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
-    #region GAMESTATE
-    public enum GameState
-    {
-        Ingame,
-
-        Tutorial,
-        Paused,
-
-        Victory,
-        Gameover,
-
-        IngameIntro,
-        Cinematic
-    }
-    #endregion
-
     #region SINGLETON
 
     /// <summary>
@@ -52,31 +36,6 @@ public class LevelManager : MonoBehaviour
 
     #region VARIABLE
 
-    private GameState state;
-
-    private void Start()
-    {
-        switch (state)
-        {
-            case GameState.Ingame:
-                break;
-            case GameState.Tutorial:
-                break;
-            case GameState.Paused:
-                break;
-            case GameState.Victory :
-                break;
-            case GameState.Gameover:
-                break;
-            case GameState.IngameIntro:
-                break;
-            case GameState.Cinematic:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
     #endregion
 
     #region ASCESSEUR
@@ -84,6 +43,29 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     #region FUNCTION UNITY
+
+    private void Start()
+    {
+        switch (GameManager.Instance.State)
+        {
+            case GameManager.GameState.Ingame:
+                break;
+            case GameManager.GameState.Tutorial:
+                break;
+            case GameManager.GameState.Paused:
+                break;
+            case GameManager.GameState.Victory:
+                break;
+            case GameManager.GameState.Gameover:
+                break;
+            case GameManager.GameState.IngameIntro:
+                break;
+            case GameManager.GameState.Cinematic:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
 
     #endregion
 
