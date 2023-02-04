@@ -61,23 +61,17 @@ public class CustomerManager : MonoBehaviour
         }
 
         // Get availible spawn of customer
-
-        foreach (var spawn in _pointsOfSpawn)
+        for (int i = 0; i < 5; i++)
         {
-            if (spawn.isAvaible)
+            if (_pointsOfSpawn[i].isAvaible)
             {
-                // Teleport Customer on point of spawn
-                actualCustomer.transform.position = spawn.point.position;
+                actualCustomer.transform.position = _pointsOfSpawn[i].point.position;
                 actualCustomer.SetActive(true);
 
-                spawn.SetAvaible(false);
-
+                _pointsOfSpawn[i].isAvaible = false;
                 break;
             }
         }
-
-
-
     }
 
     /// <summary>
