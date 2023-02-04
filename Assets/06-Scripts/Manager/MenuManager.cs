@@ -83,7 +83,7 @@ public class MenuManager : MonoBehaviour
     /// <param name="name">Name of new scene</param>
     public void ChangeScene(string name)
     {
-        GameManager.ChangeScene(name);
+        ChangeScene(name);
     }
 
     /// <summary>

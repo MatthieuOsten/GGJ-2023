@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     /// Change the scene
     /// </summary>
     /// <param name="name">Name of scene loaded</param>
-    static public void ChangeScene(string name)
+    public void ChangeScene(string name)
     {
         if (!SceneIsExist(name)) { return; }
 
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <param name="name">Name of scene loaded</param>
     /// <param name="refreshScene">If True ignore the name scene is egal of this scene</param>
-    static public void ChangeScene(string name, bool refreshScene)
+    public void ChangeScene(string name, bool refreshScene)
     {
         if (!SceneIsExist(name)) { return; }
 
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
     /// Add scene to game 
     /// </summary>
     /// <param name="name">Nom de la scene rechercher</param>
-    static public void AdditiveScene(string name)
+    public void AdditiveScene(string name)
     {
         if (!SceneIsExist(name)) { return; }
 
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
     }
 
-    static private bool SceneIsExist(string name)
+    private bool SceneIsExist(string name)
     {
         // Verify validity of name entry
         if (SceneManager.sceneCountInBuildSettings > 1)
