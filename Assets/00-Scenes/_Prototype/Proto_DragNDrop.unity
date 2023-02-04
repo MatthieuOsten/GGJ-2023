@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mouseZ: 5
+  _initialPos: {x: -1.52, y: 2.65, z: -0.41}
 --- !u!65 &1756902433
 BoxCollider:
   m_ObjectHideFlags: 0
