@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CustomerManager : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class CustomerManager : MonoBehaviour
     [Space(5), Header("PREFABS"), Space(5)]
     [SerializeField] private GameObject[] _prefabsCustomers = new GameObject[0];
     [SerializeField] private List<GameObject[]> _transformsCustomers = new List<GameObject[]>();
+
+    [SerializeField] private List<Product> _products = new List<Product>();
+    private int _nbOfImages = 3;
 
     [System.Serializable]
     private struct SpawnPoint
@@ -69,6 +75,17 @@ public class CustomerManager : MonoBehaviour
                 actualCustomer.SetActive(true);
 
                 _pointsOfSpawn[i].isAvaible = false;
+                List<string> _productGenerated = new List<string>();
+                List<Sprite> _images = new List<Sprite>();
+                for (int j = 0; j < UnityEngine.Random.Range(1, 3); j++)
+                {
+                    int randNb = UnityEngine.Random.Range(0, _products.Count);
+                    _productGenerated.Add(_products[randNb].name);
+                    _images.Add(_products[randNb].sprite);
+                }
+
+                actualCustomer.GetComponent<Client>()._productGenerated = _productGenerated;
+                actualCustomer.GetComponent<Client>()._images = _images;
                 break;
             }
         }
@@ -91,6 +108,20 @@ public class CustomerManager : MonoBehaviour
             {
                 _transformsCustomers[i][j] = Instantiate(_prefabsCustomers[i], transform.position, transform.rotation, transform);
                 _transformsCustomers[i][j].SetActive(false);
+
+                Client actualClient = null;
+
+                if (_transformsCustomers[i][j].TryGetComponent(out actualClient))
+                {
+                    List<Image> _image = new List<Image>();
+                    for (int k = 0; k != _nbOfImages; k++)
+                    {
+                        Debug.Log("ETTD");
+                        Image _temp = Instantiate(new GameObject().AddComponent<Image>(),actualClient.Panel);
+                        _image.Add(_temp);
+                        _temp.gameObject.SetActive(false);
+                    }
+                }
             }
         }
     }
