@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -22,6 +23,9 @@ public class CustomerManager : MonoBehaviour
     private int _nbOfImages = 3;
     [SerializeField] private GameObject _imagePrefab;
 
+    [Space(5), Header("EVENTS"), Space(5)]
+    [SerializeField] private UnityEvent eventSpawnCustomer;
+
     [System.Serializable]
     private struct SpawnPoint
     {
@@ -38,6 +42,11 @@ public class CustomerManager : MonoBehaviour
     {
         GenerateCustomers();
         _timerSpawn.Start();
+
+        foreach (var point in _pointsOfSpawn)
+        {
+            point.SetAvaible(true);
+        }
     }
 
     private void Update()
@@ -67,10 +76,12 @@ public class CustomerManager : MonoBehaviour
         }
 
         // Get availible spawn of customer
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
         {
             if (_pointsOfSpawn[i].isAvaible)
             {
+
+                eventSpawnCustomer.Invoke();
                 actualCustomer.transform.position = _pointsOfSpawn[i].point.position;
                 actualCustomer.SetActive(true);
 
@@ -80,12 +91,19 @@ public class CustomerManager : MonoBehaviour
                 for (int j = 0; j < UnityEngine.Random.Range(1, 4); j++)
                 {
                     int randNb = UnityEngine.Random.Range(0, _products.Count);
+                    if (randNb >= _products.Count) { continue; }
                     _productGenerated.Add(_products[randNb].name);
                     _images.Add(_products[randNb].sprite);
                 }
 
-                actualCustomer.GetComponent<Client>()._productGenerated = _productGenerated;
-                actualCustomer.GetComponent<Client>()._images = _images;
+                Client client = null;
+
+                if (actualCustomer.TryGetComponent<Client>(out client))
+                {
+                    actualCustomer.GetComponent<Client>()._productGenerated = _productGenerated;
+                    actualCustomer.GetComponent<Client>()._images = _images;
+                }
+
                 break;
             }
         }
@@ -107,7 +125,7 @@ public class CustomerManager : MonoBehaviour
 
             for (int j = 0; j < _pointsOfSpawn.Length; j++)
             {
-                _transformsCustomers[i][j] = Instantiate(_prefabsCustomers[i], transform.position, transform.rotation, transform);
+                _transformsCustomers[i][j] = Instantiate(_prefabsCustomers[i], transform);
                 _transformsCustomers[i][j].SetActive(false);
 
                 Client actualClient = null;

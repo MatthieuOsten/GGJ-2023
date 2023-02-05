@@ -36,6 +36,8 @@ public class LevelManager : MonoBehaviour
 
     #region VARIABLE
 
+    private string _nameScenePause = "Pause", _nameSceneHighscore = "Highscore";
+
     #endregion
 
     #region ASCESSEUR
@@ -44,19 +46,29 @@ public class LevelManager : MonoBehaviour
 
     #region FUNCTION UNITY
 
-    private void Start()
+    private void Update()
     {
         switch (GameManager.Instance.State)
         {
             case GameManager.GameState.Ingame:
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    GameManager.Instance.State = GameManager.GameState.Paused;
+                    GameManager.Instance.AdditiveScene(_nameScenePause);
+                }
                 break;
             case GameManager.GameState.Tutorial:
                 break;
             case GameManager.GameState.Paused:
+                if (Input.GetKeyDown(KeyCode.P))
+                {
+                    GameManager.Instance.State= GameManager.GameState.Ingame;
+                    GameManager.Instance.UnloadScene(_nameScenePause);
+                }
                 break;
             case GameManager.GameState.Victory:
-                break;
             case GameManager.GameState.Gameover:
+                GameManager.Instance.ChangeScene(_nameSceneHighscore);
                 break;
             case GameManager.GameState.IngameIntro:
                 break;
@@ -64,6 +76,11 @@ public class LevelManager : MonoBehaviour
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        {
+            GameManager.Instance.QuitGame();
         }
     }
 

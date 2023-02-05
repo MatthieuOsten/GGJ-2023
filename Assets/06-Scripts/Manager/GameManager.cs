@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameState _state = GameState.IngameIntro;
 
+    [SerializeField] private static int _defaultFrameRate = 60;
+
     #endregion
 
     #region ASCESSEUR
@@ -66,6 +68,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region FUNCTION UNITY
+
+    private void Start()
+    {
+        ChangeFrameRate(_defaultFrameRate);
+    }
+
     #endregion
 
     #region FUNCTION
@@ -112,6 +120,18 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetSceneByName(name).isLoaded == false)
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Add scene to game 
+    /// </summary>
+    /// <param name="name">Nom de la scene rechercher</param>
+    public void UnloadScene(string name)
+    {
+        if (!SceneIsExist(name)) { return; }
+
+        if (SceneManager.GetSceneByName(name).isLoaded == true && SceneManager.sceneCount > 1)
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(name).buildIndex);
     }
 
     private bool SceneIsExist(string name)
