@@ -36,7 +36,6 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
-        _timerSpawn.Start();
         GenerateCustomers();
         _timerSpawn.Start();
     }

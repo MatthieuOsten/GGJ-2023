@@ -84,6 +84,9 @@ public class Timer
     /// </summary>
     public void Start()
     {
+        Debug.Log(_speed);
+        _speed = 1;
+        Debug.Log(_speed);
         if (Time <= 0)
         {
             IsFinish = false;
