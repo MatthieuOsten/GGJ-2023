@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461b31b96c4ab2f5b867974800f01a93, type: 3}
+  m_Script: {fileID: 11500000, guid: f39d1faf3450f3e43b87d3b35dfec527, type: 3}
   m_Name: Cup
   m_EditorClassIdentifier: 
-  name: Cup
-  sprite: {fileID: 21300000, guid: ddf2e76e8a1f88f46ae1e42277850b48, type: 3}
+  name: Cube
+  sprite: {fileID: 21300000, guid: ad4dcac393f63f3468f6d9ff1652732e, type: 3}

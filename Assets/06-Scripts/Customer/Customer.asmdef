@@ -1,7 +1,8 @@
 {
     "name": "Customer",
     "references": [
-        "GUID:a4e79fefa66331c4a9cf5012e9aa04f4"
+        "GUID:a4e79fefa66331c4a9cf5012e9aa04f4",
+        "GUID:1328d53fe4f6002aeb21432a34f2a911"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
