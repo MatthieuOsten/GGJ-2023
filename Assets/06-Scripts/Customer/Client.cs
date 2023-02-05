@@ -102,12 +102,14 @@ public class Client : MonoBehaviour
                 Debug.Log("BRAVO");
                 _productGenerated = new List<string>();
                 _bag.GetComponent<ContentBag>().ResetList();
+                AudioManager.Instance.Play("Client_Happy");
             }
             else if (_isFailed == 1)
             {
                 Debug.Log("RATé");
                 _productGenerated = new List<string>();
                 _bag.GetComponent<ContentBag>().ResetList();
+                AudioManager.Instance.Play("Client_angry");
             }
         }
     }

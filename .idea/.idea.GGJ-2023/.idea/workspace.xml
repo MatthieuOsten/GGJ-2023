@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db02d1ae-6349-4ed5-8999-3d74b84f2440" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/00-Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/00-Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Customer.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Customer.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/DragNDrop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/DragNDrop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Manager/Manager.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Manager/Manager.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Manager/MenuManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Manager/MenuManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675503660459</updated>
       <workItem from="1675503668970" duration="28503000" />
-      <workItem from="1675615325905" duration="2327000" />
+      <workItem from="1675615325905" duration="2996000" />
     </task>
     <servers />
   </component>
