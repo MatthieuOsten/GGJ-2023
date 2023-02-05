@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -22,6 +23,8 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private List<Product> _products = new List<Product>();
     private int _nbOfImages = 3;
     [SerializeField] private GameObject _imagePrefab;
+    
+    [SerializeField] private GameObject[] _bagList = new GameObject[0];
 
     [Space(5), Header("EVENTS"), Space(5)]
     [SerializeField] private UnityEvent eventSpawnCustomer;
@@ -57,6 +60,40 @@ public class CustomerManager : MonoBehaviour
         {
             ActivateCustomer();
             _timerSpawn.Restart();
+        }
+
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
+        {
+            int temp = 0;
+            for (int j = 0; j < _prefabsCustomers.Length; j++)
+            {
+                foreach (var customer in _transformsCustomers[j])
+                {
+                    if (customer.transform.position.x == _pointsOfSpawn[i].point.position.x && customer.gameObject.activeSelf)
+                    {
+                        temp++;
+                    }
+                }
+            }
+            if (temp == 0)
+            {
+                _pointsOfSpawn[i].isAvaible = true;
+            }
+        }
+
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
+        {
+            for (int j = 0; j < _prefabsCustomers.Length; j++)
+            {
+                foreach (var customer in _transformsCustomers[j])
+                {
+                    if (customer.gameObject.activeSelf && customer.transform.position.x == _pointsOfSpawn[i].point.position.x)
+                    {
+                        customer.GetComponent<Client>()._inTheBag = _bagList[i].GetComponent<ContentBag>()._productsList;
+                        customer.GetComponent<Client>()._bag = _bagList[i];
+                    }
+                }
+            }
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ContentBag : MonoBehaviour
 {
-    private List<string> _productsList = new List<string>();
+    public List<string> _productsList = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,11 @@ public class ContentBag : MonoBehaviour
                 _productsList.Add(temp);
             }
         }
+    }
+
+    public void ResetList()
+    {
+        _productsList = new List<string>();
     }
 
     // Update is called once per frame
