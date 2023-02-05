@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [Tooltip("The element 0 is the first display")]
     [SerializeField] private List<GameObject> listOfCanvas = new List<GameObject>();
 
+    [SerializeField] private bool _quitWithDownKey = false;
     [SerializeField] private KeyCode _quitAfterDownKey = KeyCode.Space;
     [SerializeField] private string _nameSceneToQuitAfterDownKey = "MainMenu";
 
@@ -22,7 +23,7 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(_quitAfterDownKey))
+        if (Input.GetKeyDown(_quitAfterDownKey) && _quitWithDownKey)
         {
             GameManager.Instance.ChangeScene(_nameSceneToQuitAfterDownKey);
         }

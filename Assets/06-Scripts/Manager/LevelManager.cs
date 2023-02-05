@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
 
     #region VARIABLE
 
-    private string _nameScenePause = "Pause", _nameSceneHighscore = "Highscore";
+    [SerializeField] private string _nameScenePause = "Pause", _nameSceneHighscore = "Highscore";
 
     #endregion
 
@@ -45,6 +45,11 @@ public class LevelManager : MonoBehaviour
     #endregion
 
     #region FUNCTION UNITY
+
+    private void Start()
+    {
+        GameManager.Instance.State = GameManager.GameState.Ingame;
+    }
 
     private void Update()
     {

@@ -23,7 +23,7 @@ public class WidgetScore : MonoBehaviour
 
     private void Update()
     {
-        if (_animate_text)
+        if (_animate_text && _TextScore != null)
         {
             _timer -= Time.deltaTime;
             if (_timer <= 0)
@@ -41,9 +41,14 @@ public class WidgetScore : MonoBehaviour
     public void Add_score()
     {
         _score += 1;
-        _TextScore.text = _score.ToString();
-        _animate_text = true;
-        _TextScore.fontSize = 100;
+
+        if (_TextScore != null)
+        {
+            _TextScore.text = _score.ToString();
+            _animate_text = true;
+            _TextScore.fontSize = 100;
+        }
+
     }
 
     private void DisplayTopThree()
@@ -97,24 +102,38 @@ public class WidgetScore : MonoBehaviour
 
     public void EnableScore()
     {
-        _TextScore.gameObject.SetActive(true);
+        if (_TextScore != null)
+        {
+            _TextScore.gameObject.SetActive(true);
+        }
     }
     
     public void DisableScore()
     {
-        _TextScore.gameObject.SetActive(false);
+        if (_TextScore != null)
+        {
+            _TextScore.gameObject.SetActive(false);
+        }
     }
     public void EnableHighscore()
     {
-        _TextHighscore.gameObject.SetActive(true);
+        if (_TextHighscore != null)
+        {
+            _TextHighscore.gameObject.SetActive(true);
+        }
     }
     
     public void DisableHighscore()
     {
-        _TextHighscore.gameObject.SetActive(false);
+        if (_TextHighscore != null)
+        {
+            _TextHighscore.gameObject.SetActive(false);
+        }
+
     }
     public void Update_highscore()
     {
+        if (_TextHighscore != null)
         _TextHighscore.text = "HighScore\n\n1. " + _scorehig.TopThree[0].ToString() + "\n2. " + _scorehig.TopThree[1].ToString() + "\n3. " + _scorehig.TopThree[2].ToString();
     }
 }
