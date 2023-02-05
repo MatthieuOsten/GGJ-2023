@@ -31,6 +31,9 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)
+        {
+            gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit++;
+        }
     }
 }

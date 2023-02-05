@@ -20,6 +20,7 @@ public class CustomerManager : MonoBehaviour
 
     [SerializeField] private List<Product> _products = new List<Product>();
     private int _nbOfImages = 3;
+    [SerializeField] private GameObject _imagePrefab;
 
     [System.Serializable]
     private struct SpawnPoint
@@ -35,7 +36,6 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
-        _timerSpawn.Start();
         GenerateCustomers();
         _timerSpawn.Start();
     }
@@ -77,7 +77,7 @@ public class CustomerManager : MonoBehaviour
                 _pointsOfSpawn[i].isAvaible = false;
                 List<string> _productGenerated = new List<string>();
                 List<Sprite> _images = new List<Sprite>();
-                for (int j = 0; j < UnityEngine.Random.Range(1, 3); j++)
+                for (int j = 0; j < UnityEngine.Random.Range(1, 4); j++)
                 {
                     int randNb = UnityEngine.Random.Range(0, _products.Count);
                     _productGenerated.Add(_products[randNb].name);
@@ -97,6 +97,7 @@ public class CustomerManager : MonoBehaviour
     private void GenerateCustomers()
     {
         _transformsCustomers = new List<GameObject[]>();
+        Image _temp2 = new GameObject().AddComponent<Image>();
 
         // Create the number of list from number of prefabs
         for (int i = 0; i < _prefabsCustomers.Length; i++)
@@ -117,13 +118,14 @@ public class CustomerManager : MonoBehaviour
                     for (int k = 0; k != _nbOfImages; k++)
                     {
                         Debug.Log("ETTD");
-                        Image _temp = Instantiate(new GameObject().AddComponent<Image>(),actualClient.Panel);
+                        Image _temp = Instantiate(_imagePrefab,actualClient.Panel).GetComponent<Image>();
                         _image.Add(_temp);
                         _temp.gameObject.SetActive(false);
                     }
                 }
             }
         }
+        Destroy(_temp2);
     }
 
     /// <summary>
