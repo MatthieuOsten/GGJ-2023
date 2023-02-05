@@ -272,6 +272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "poussi\xE8re"
       objectReference: {fileID: 0}
+    - target: {fileID: 861186063914791458, guid: e974f13cfecfd244d875a1198f6af192,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 861186063914791517, guid: e974f13cfecfd244d875a1198f6af192,
         type: 3}
       propertyPath: m_RootOrder
@@ -734,6 +739,11 @@ PrefabInstance:
     - target: {fileID: 479710942154846101, guid: 30551a26b382fe843a95d181bb96bb4a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823019842547669254, guid: 30551a26b382fe843a95d181bb96bb4a,
+        type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7113944978344515307, guid: 30551a26b382fe843a95d181bb96bb4a,
