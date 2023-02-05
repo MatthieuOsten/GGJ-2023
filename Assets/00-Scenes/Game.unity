@@ -1298,12 +1298,117 @@ MonoBehaviour:
   _debugLog: 0
   _play: 0
   sounds:
-  - _name: SpawnRabbit
-    _clip: {fileID: 0}
+  - _name: Ambiance_Crowd
+    _clip: {fileID: 8300000, guid: 28402c51f50397f4aad5ba507afb7db0, type: 3}
     _tag: 
-    _volume: 0
-    _pitch: 0
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: Ambiance_Forest
+    _clip: {fileID: 8300000, guid: ce76fa71fbb479342b27a0df40ea7f12, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: Button_Click
+    _clip: {fileID: 8300000, guid: f6b4acea93512ba429f5bf52e2a111f3, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
     _loop: 0
+    _source: {fileID: 0}
+  - _name: Button_MouseHover
+    _clip: {fileID: 8300000, guid: 7f108df5c1509df43a3ccaad3b6ee682, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: Chrono_Chaud
+    _clip: {fileID: 8300000, guid: 103a1b343581afa48b7ec33656b4a007, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: Chrono_Oulah
+    _clip: {fileID: 8300000, guid: 6d459354d4be241489520da368da5601, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: Client_angry
+    _clip: {fileID: 8300000, guid: db2ccad795648114faa47a2edf241ff6, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: Client_Happy
+    _clip: {fileID: 8300000, guid: ff9f9049aacd45043bacb6aea1bdd14e, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: DragAndDrop_DropEmpty
+    _clip: {fileID: 8300000, guid: bd5b0e67cdf4c234694ab96e5e3701fd, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: DragAndDrop_DropPaperBag
+    _clip: {fileID: 8300000, guid: 97461127284e5454c9077ad35b8c52b4, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: DragAndDrop_Take
+    _clip: {fileID: 8300000, guid: be08b26d1b78ba04d9073673f6f6eab0, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    _source: {fileID: 0}
+  - _name: InGameMusic_Choix1
+    _clip: {fileID: 8300000, guid: 3f6960f4df834884c8e08f1ffca6e5e7, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: InGameMusic_Choix2
+    _clip: {fileID: 8300000, guid: c8a5f8a57180f0240bf1012231e9f2b1, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: Music_Choix3
+    _clip: {fileID: 8300000, guid: 5b39338f3c1477d40838808d3fe01e4f, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: Music_Choix4
+    _clip: {fileID: 8300000, guid: a138af9932c84c442b8226dbef07d501, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
+    _source: {fileID: 0}
+  - _name: Music_Menu
+    _clip: {fileID: 8300000, guid: 470d1c1232761f945947a219eacc88d6, type: 3}
+    _tag: 
+    _volume: 1
+    _pitch: 1
+    _loop: 1
     _source: {fileID: 0}
 --- !u!4 &1195338546
 Transform:

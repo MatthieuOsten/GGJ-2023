@@ -1,7 +1,8 @@
 {
     "name": "Manager",
     "references": [
-        "GUID:a4e79fefa66331c4a9cf5012e9aa04f4"
+        "GUID:a4e79fefa66331c4a9cf5012e9aa04f4",
+        "GUID:eee3cd01b9dab1f48a2dea94cb4f9b54"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

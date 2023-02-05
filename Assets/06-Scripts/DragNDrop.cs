@@ -25,6 +25,7 @@ public class DragNDrop : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Bag"))
             {
+                AudioManager.Instance.Play("DragAndDrop_DropPaperBag");
                 gameObject.SetActive(false);
             }
         }
@@ -36,6 +37,11 @@ public class DragNDrop : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        AudioManager.Instance.Play("DragAndDrop_Take");
     }
 
     // Update is called once per frame

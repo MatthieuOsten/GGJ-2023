@@ -43,6 +43,8 @@ public class CustomerManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.Play("Ambiance_Forest");
+        AudioManager.Instance.Play("InGameMusic_Choix1");
         GenerateCustomers();
         _timerSpawn.Start();
 
