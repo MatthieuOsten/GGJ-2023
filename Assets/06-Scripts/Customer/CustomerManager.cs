@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -49,6 +50,50 @@ public class CustomerManager : MonoBehaviour
             ActivateCustomer();
             _timerSpawn.Restart();
         }
+
+        for (int i = 0; i < 5; i++)
+        {
+            int temp = 0;
+            for (int j = 0; j < 3; j++)
+            {
+                foreach (var customer in _transformsCustomers[j])
+                {
+                    if (customer.transform.position.x == _pointsOfSpawn[i].point.position.x && customer.gameObject.activeSelf)
+                    {
+                        temp++;
+                    }
+                }
+            }
+            if (temp == 0)
+            {
+                _pointsOfSpawn[i].isAvaible = true;
+            }
+        }
+
+
+
+
+    /*
+        for (int j = 0; j < _prefabsCustomers.Length; j++)
+            {
+                Debug.Log("SpawnX" + _pointsOfSpawn[i].point.position.x);
+                Debug.Log("CustomerX" + _transformsCustomers[j][i].transform.position.x);
+                if (_pointsOfSpawn[i].point.position.x == _transformsCustomers[j][i].transform.position.x)
+                {
+                    Debug.Log("HAHAH");
+                    if (_transformsCustomers[j][i].activeSelf)
+                    {
+                        temp++;
+                    }
+                }
+            }
+
+            if (temp == 0)
+            {
+                _pointsOfSpawn[i].isAvaible = true;
+            }
+        }
+    */
     }
 
     /// <summary>

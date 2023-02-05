@@ -51,6 +51,7 @@ public class Clock : MonoBehaviour
     private void OnValidate()
     {
         ActualFilling = ActualFilling;
+        UpdateDisplay();
     }
 
 #endif
