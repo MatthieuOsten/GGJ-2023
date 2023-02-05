@@ -132,17 +132,17 @@ PrefabInstance:
     - target: {fileID: 2850163535892636378, guid: e9a5f93d1068baac99c3d57460e44b85,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850163535892636378, guid: e9a5f93d1068baac99c3d57460e44b85,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850163535892636378, guid: e9a5f93d1068baac99c3d57460e44b85,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2850163535892636378, guid: e9a5f93d1068baac99c3d57460e44b85,
         type: 3}
@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: _clock
       value: 
       objectReference: {fileID: 1689629155390008605}
+    - target: {fileID: 5907493427429066666, guid: e9a5f93d1068baac99c3d57460e44b85,
+        type: 3}
+      propertyPath: _inTheBag.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8533691050715785865, guid: e9a5f93d1068baac99c3d57460e44b85,
         type: 3}
       propertyPath: m_Name

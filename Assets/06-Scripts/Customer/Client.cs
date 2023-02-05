@@ -15,6 +15,8 @@ public class Client : MonoBehaviour
     [SerializeField] private Timer _timerDispawn;
     [SerializeField] private Clock _clock;
     [SerializeField] private float _timeToDispawn = 10;
+    public List<string> _inTheBag = new List<string>();
+    public GameObject _bag;
 
     public Transform Panel
     {
@@ -41,6 +43,8 @@ public class Client : MonoBehaviour
     void Update()
     {
         int temp = 0;
+        int temp2 = 0;
+        int _isFailed = 0;
         _timerDispawn.Update();
         for (int i = 0; i != _images.Count; i++)
         {
@@ -75,6 +79,36 @@ public class Client : MonoBehaviour
         if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)
         {
             gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit++;
+        }
+
+        if (_inTheBag.Count != 0)
+        {
+
+            for (int i = 0; i != _inTheBag.Count; i++)
+            {
+                if (string.Compare(_productGenerated[i], _inTheBag[i]) == 0)
+                {
+                    temp2++;
+                    _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(false);
+                }
+                else
+                {
+                    _isFailed = 1;
+                }
+            }
+
+            if (temp2 == _productGenerated.Count)
+            {
+                Debug.Log("BRAVO");
+                _productGenerated = new List<string>();
+                _bag.GetComponent<ContentBag>().ResetList();
+            }
+            else if (_isFailed == 1)
+            {
+                Debug.Log("RATé");
+                _productGenerated = new List<string>();
+                _bag.GetComponent<ContentBag>().ResetList();
+            }
         }
     }
 }

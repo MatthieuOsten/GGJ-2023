@@ -22,6 +22,8 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private List<Product> _products = new List<Product>();
     private int _nbOfImages = 3;
     [SerializeField] private GameObject _imagePrefab;
+    
+    [SerializeField] private GameObject[] _bagList = new GameObject[0];
 
     [System.Serializable]
     private struct SpawnPoint
@@ -51,10 +53,10 @@ public class CustomerManager : MonoBehaviour
             _timerSpawn.Restart();
         }
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
         {
             int temp = 0;
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < _prefabsCustomers.Length; j++)
             {
                 foreach (var customer in _transformsCustomers[j])
                 {
@@ -70,30 +72,20 @@ public class CustomerManager : MonoBehaviour
             }
         }
 
-
-
-
-    /*
-        for (int j = 0; j < _prefabsCustomers.Length; j++)
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
+        {
+            for (int j = 0; j < _prefabsCustomers.Length; j++)
             {
-                Debug.Log("SpawnX" + _pointsOfSpawn[i].point.position.x);
-                Debug.Log("CustomerX" + _transformsCustomers[j][i].transform.position.x);
-                if (_pointsOfSpawn[i].point.position.x == _transformsCustomers[j][i].transform.position.x)
+                foreach (var customer in _transformsCustomers[j])
                 {
-                    Debug.Log("HAHAH");
-                    if (_transformsCustomers[j][i].activeSelf)
+                    if (customer.gameObject.activeSelf && customer.transform.position.x == _pointsOfSpawn[i].point.position.x)
                     {
-                        temp++;
+                        customer.GetComponent<Client>()._inTheBag = _bagList[i].GetComponent<ContentBag>()._productsList;
+                        customer.GetComponent<Client>()._bag = _bagList[i];
                     }
                 }
             }
-
-            if (temp == 0)
-            {
-                _pointsOfSpawn[i].isAvaible = true;
-            }
         }
-    */
     }
 
     /// <summary>
@@ -112,7 +104,7 @@ public class CustomerManager : MonoBehaviour
         }
 
         // Get availible spawn of customer
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < _pointsOfSpawn.Length; i++)
         {
             if (_pointsOfSpawn[i].isAvaible)
             {
