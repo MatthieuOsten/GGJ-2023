@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         // Display first panel
+        AudioManager.Instance.Play("Music_Menu");
         ChangePanel(0);
     }
 
@@ -24,6 +25,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(_quitAfterDownKey))
         {
+            AudioManager.Instance.Play("Button_Click");
             GameManager.Instance.ChangeScene(_nameSceneToQuitAfterDownKey);
         }
     }

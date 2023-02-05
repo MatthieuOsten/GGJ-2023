@@ -25,36 +25,22 @@ public class DragNDrop : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Bag"))
             {
+                AudioManager.Instance.Play("DragAndDrop_DropPaperBag");
                 gameObject.SetActive(false);
             }
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Bag"))
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (Input.GetMouseButtonUp(0) == true)
-        {
-            if (other.gameObject.CompareTag("Bag"))
-            {
-                gameObject.SetActive(false);
-            }
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        AudioManager.Instance.Play("DragAndDrop_Take");
     }
 
     // Update is called once per frame
