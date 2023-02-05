@@ -30,25 +30,6 @@ public class DragNDrop : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Bag"))
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (Input.GetMouseButtonUp(0) == true)
-        {
-            if (other.gameObject.CompareTag("Bag"))
-            {
-                gameObject.SetActive(false);
-            }
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
