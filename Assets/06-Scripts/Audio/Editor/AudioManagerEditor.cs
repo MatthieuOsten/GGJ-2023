@@ -17,7 +17,7 @@ public class AudioManagerEditor : Editor
     {
         if (cursor == null)
         {
-            cursor = CreateTextureCircle(64);
+            cursor = GeometryGenerator.CreateTextureCircle(64);
         }
 
     }
@@ -150,11 +150,11 @@ public class AudioManagerEditor : Editor
         GUILayout.Space(5f);
 
         // Get image of cursor slider and modifie the image
-        Texture2D thumbTex = CreateTextureCircle(512);
+        Texture2D thumbTex = GeometryGenerator.CreateTextureCircle(512);
         if (thumbTex != null)
         {
             // Set the color
-            thumbTex = SetColorTexture(thumbTex,colorActual);
+            thumbTex = GeometryGenerator.SetColorTexture(thumbTex,colorActual);
 
             // Create style of slider
             GUIStyle thumbStyle = new GUIStyle(GUI.skin.horizontalSliderThumb);
@@ -247,11 +247,11 @@ public class AudioManagerEditor : Editor
         GUILayout.Space(5f);
 
         // Get image of cursor slider and modifie the image
-        Texture2D thumbTex = CreateTextureCircle(512);
+        Texture2D thumbTex = GeometryGenerator.CreateTextureCircle(512);
         if (thumbTex != null)
         {
             // Set the color
-            thumbTex = SetColorTexture(thumbTex, colorActual);
+            thumbTex = GeometryGenerator.SetColorTexture(thumbTex, colorActual);
 
             // Create style of slider
             GUIStyle thumbStyle = new GUIStyle(GUI.skin.horizontalSliderThumb);
@@ -312,7 +312,7 @@ public class AudioManagerEditor : Editor
         {
             // Set the color
             if (thumbTex.GetPixel(thumbTex.width/2,thumbTex.height/2) != colorActual ) {
-                thumbTex = SetColorTexture(thumbTex, colorActual);
+                thumbTex = GeometryGenerator.SetColorTexture(thumbTex, colorActual);
             }
 
             // Create style of slider
@@ -341,54 +341,6 @@ public class AudioManagerEditor : Editor
         GUILayout.EndHorizontal();
 
         return valueActual;
-    }
-
-    private Texture2D CreateTextureCircle(int size)
-    {
-        Texture2D circleTex = new Texture2D(size, size);
-        Color[] pixels = circleTex.GetPixels();
-        int centerX = circleTex.width / 2;
-        int centerY = circleTex.height / 2;
-        int radius = circleTex.width / 2 - 1;
-        for (int x = 0; x < circleTex.width; x++)
-        {
-            for (int y = 0; y < circleTex.height; y++)
-            {
-                int dist = (int)Vector2.Distance(new Vector2(x, y), new Vector2(centerX, centerY));
-                if (dist < radius)
-                {
-                    pixels[y * circleTex.width + x] = Color.white;
-                }
-                else
-                {
-                    pixels[y * circleTex.width + x] = Color.clear;
-                }
-            }
-        }
-        circleTex.SetPixels(pixels);
-        circleTex.Apply();
-
-        return circleTex;
-    }
-
-
-
-    private Texture2D SetColorTexture(Texture2D texture, Color newColor)
-    {
-        for (int x = 0; x < texture.width; x++)
-        {
-            for (int y = 0; y < texture.height; y++)
-            {
-                if (texture.GetPixel(x, y) == Color.white)
-                {
-                    texture.SetPixel(x, y, newColor);
-                }
-            }
-        }
-
-        texture.Apply();
-
-        return texture;
     }
 
     private void DisplayTexture(Texture2D texture)
