@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<string> _scenes = new List<string>();
 
+    public bool forcechange;
+
     #endregion
 
     #region ASCESSEUR
@@ -85,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            _scenes.Add(SceneManager.GetSceneByBuildIndex(i).path);
+            _scenes.Add(SceneManager.GetSceneByBuildIndex(i).name);
         }
     }
 
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Name of scene loaded</param>
     public void ChangeScene(string name)
     {
-        if (!SceneIsExist(name)) { return; }
+        if (!SceneIsExist(name) && !forcechange) { return; }
 
         // If this scene is not entry scene also load new scene
         if (SceneManager.GetActiveScene().name != name)
@@ -120,7 +122,7 @@ public class GameManager : MonoBehaviour
     /// <param name="refreshScene">If True ignore the name scene is egal of this scene</param>
     public void ChangeScene(string name, bool refreshScene)
     {
-        if (!SceneIsExist(name)) { return; }
+        if (!SceneIsExist(name) && !forcechange) { return; }
 
         // If this scene is not entry scene also load new scene
         if (SceneManager.GetActiveScene().name != name || refreshScene)
@@ -133,7 +135,7 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Nom de la scene rechercher</param>
     public void AdditiveScene(string name)
     {
-        if (!SceneIsExist(name)) { return; }
+        if (!SceneIsExist(name) && !forcechange) { return; }
 
         if (SceneManager.GetSceneByName(name).isLoaded == false)
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
@@ -145,7 +147,7 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Nom de la scene rechercher</param>
     public void UnloadScene(string name)
     {
-        if (!SceneIsExist(name)) { return; }
+        if (!SceneIsExist(name) && !forcechange) { return; }
 
         if (SceneManager.GetSceneByName(name).isLoaded == true && SceneManager.sceneCount > 1)
             SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(name).buildIndex);
