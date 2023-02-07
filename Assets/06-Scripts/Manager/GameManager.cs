@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private static int _defaultFrameRate = 60;
 
+    [SerializeField] private List<string> _scenes = new List<string>();
+
     #endregion
 
     #region ASCESSEUR
@@ -73,6 +75,21 @@ public class GameManager : MonoBehaviour
     {
         ChangeFrameRate(_defaultFrameRate);
     }
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmos()
+    {
+        _scenes.Clear();
+        _scenes = new List<string>();
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            _scenes.Add(SceneManager.GetSceneByBuildIndex(i).path);
+        }
+    }
+
+#endif
 
     #endregion
 

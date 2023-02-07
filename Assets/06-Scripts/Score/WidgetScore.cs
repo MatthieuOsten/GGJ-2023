@@ -51,6 +51,19 @@ public class WidgetScore : MonoBehaviour
 
     }
 
+    public void Add_score(int score)
+    {
+        _score += score;
+
+        if (_TextScore != null)
+        {
+            _TextScore.text = _score.ToString();
+            _animate_text = true;
+            _TextScore.fontSize = 100;
+        }
+
+    }
+
     private void DisplayTopThree()
     {
         if (_TextHighscore != null)

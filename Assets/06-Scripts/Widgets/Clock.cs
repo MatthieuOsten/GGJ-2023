@@ -15,6 +15,7 @@ public class Clock : MonoBehaviour
     [Header("DISPLAY")]
     [SerializeField] private Transform _needle;
     [SerializeField] private Image _imageFilling;
+    [SerializeField] private bool _gradientColor = true;
 
     [Header("DEBUG")]
     [SerializeField] private bool _fillingToNeedle = true;
@@ -80,6 +81,11 @@ public class Clock : MonoBehaviour
         if (_imageFilling != null)
         {
             _imageFilling.fillAmount = ActualFilling;
+            if (_gradientColor)
+            {
+                _imageFilling.color = Color.Lerp(Color.red, Color.green, ActualFilling);
+            }
+
         }
 
     }

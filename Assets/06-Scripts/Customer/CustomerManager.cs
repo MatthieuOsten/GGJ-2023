@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -73,16 +71,33 @@ public class CustomerManager : MonoBehaviour
                 {
                     if (customer.transform.position.x == _pointsOfSpawn[i].point.position.x && customer.gameObject.activeSelf)
                     {
+                        ActivateBag(i,true);
                         temp++;
                     }
                 }
             }
             if (temp == 0)
             {
+                ActivateBag(i, false);
                 _pointsOfSpawn[i].isAvaible = true;
             }
         }
 
+        CheckInBag();
+
+    }
+
+    private void ActivateBag(int index, bool actived)
+    {
+        if (index < _bagList.Length)
+        {
+            _bagList[index].gameObject.SetActive(actived);
+        }
+    }
+
+
+    private void CheckInBag()
+    {
         for (int i = 0; i < _pointsOfSpawn.Length; i++)
         {
             for (int j = 0; j < _prefabsCustomers.Length; j++)
@@ -91,8 +106,23 @@ public class CustomerManager : MonoBehaviour
                 {
                     if (customer.gameObject.activeSelf && customer.transform.position.x == _pointsOfSpawn[i].point.position.x)
                     {
-                        customer.GetComponent<Client>()._inTheBag = _bagList[i].GetComponent<ContentBag>()._productsList;
-                        customer.GetComponent<Client>()._bag = _bagList[i];
+                        if (i >= _bagList.Length)
+                        {
+                            Debug.Log(i + " is to big ... Size of _bagList not egals of _pointsOfSpawn");
+                            continue;
+                        }
+
+                        Client theCustomer = customer.GetComponent<Client>();
+
+                        if (theCustomer != null)
+                        {
+                            ContentBag bag = theCustomer.GetComponent<ContentBag>();
+
+                            if (bag != null) { theCustomer._inTheBag = bag._productsList; }
+                            theCustomer._bag = _bagList[i];
+                        }
+
+
                     }
                 }
             }

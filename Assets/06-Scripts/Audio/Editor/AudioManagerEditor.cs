@@ -13,6 +13,8 @@ public class AudioManagerEditor : Editor
 
     Texture2D cursor;
 
+    private bool _seeAllSounds = false;
+
     private void OnValidate()
     {
         if (cursor == null)
@@ -25,8 +27,16 @@ public class AudioManagerEditor : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
+        serializedObject.Update();
+
         AudioManager myScript = (AudioManager)target;
 
+        _seeAllSounds = EditorGUILayout.Toggle(_seeAllSounds);
+
+        serializedObject.ApplyModifiedProperties();
+
+        if (Application.isPlaying)
+        {
             name = EditorGUILayout.TextField(name);
             if (GUILayout.Button("Play")) { myScript.Play(name); }
 
@@ -34,7 +44,7 @@ public class AudioManagerEditor : Editor
             foreach (var sound in myScript.sounds)
             {
                 if (sound.Source == null) { continue; } 
-                else if (sound.Source.time <= 0) { continue; }
+                else if (sound.Source.time == 0) { continue; }
             
                 GUILayout.BeginVertical(GUI.skin.box);
 
@@ -56,29 +66,33 @@ public class AudioManagerEditor : Editor
                 GUILayout.Space(10f);
             }
 
-        // Display other sound don't playing
-        foreach (var sound in myScript.sounds)
-        {
-            if (sound.Source == null) { }
-            else if (sound.Source.time > 0) { continue; }
 
-            GUILayout.BeginVertical(GUI.skin.box);
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label(sound.Name);
-            GUILayout.EndHorizontal();
-
-            EditorGUI.BeginDisabledGroup(true);
-            if (sound.Clip != null)
+            // Display other sound don't playing
+            foreach (var sound in myScript.sounds)
             {
-                BeautifulSlider(0, 0, sound.Clip.length);
+                if (sound.Source == null) { }
+                else if (sound.Source.time > 0) { continue; }
+
+                GUILayout.BeginVertical(GUI.skin.box);
+
+                GUILayout.BeginHorizontal();
+                GUILayout.Label(sound.Name);
+                GUILayout.EndHorizontal();
+
+                EditorGUI.BeginDisabledGroup(true);
+                if (sound.Clip != null)
+                {
+                    BeautifulSlider(0, 0, sound.Clip.length);
+                }
+                EditorGUI.EndDisabledGroup();
+
+                GUILayout.EndVertical();
+
+                GUILayout.Space(10f);
             }
-            EditorGUI.EndDisabledGroup();
-
-            GUILayout.EndVertical();
-
-            GUILayout.Space(10f);
         }
+
+
 
     }
 

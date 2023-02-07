@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 938368e02a2825f4bb60e2691572728d,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -191,6 +191,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0dc70e9e0443864499d54f531f16aed, type: 3}
+--- !u!1 &43921299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 248417549291955093, guid: 39629de3e8eb26241989325760d9d4e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1258207507}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &51455609 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7677746287242976407, guid: 58c7182b769c7bc41b28ea1db886e49c,
@@ -681,6 +687,12 @@ PrefabInstance:
 --- !u!4 &314812841 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1769512535942853974, guid: 39629de3e8eb26241989325760d9d4e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 314812840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &317263538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 248417549291955093, guid: 39629de3e8eb26241989325760d9d4e8,
     type: 3}
   m_PrefabInstance: {fileID: 314812840}
   m_PrefabAsset: {fileID: 0}
@@ -1296,7 +1308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _debugLog: 0
-  _play: 0
   sounds:
   - _name: Ambiance_Crowd
     _clip: {fileID: 8300000, guid: 28402c51f50397f4aad5ba507afb7db0, type: 3}
@@ -1702,6 +1713,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87a6c084a04035447a4d485cbe0f0858, type: 3}
+--- !u!1 &1443489477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 248417549291955093, guid: 39629de3e8eb26241989325760d9d4e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1789358969671634658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1539725378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ff9e16cb42ec5008804fc0101a882f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameScenePause: Pause
+  _nameSceneHighscore: Highscore
 --- !u!4 &1995993744
 Transform:
   m_ObjectHideFlags: 0
@@ -2331,6 +2350,10 @@ MonoBehaviour:
   _products: []
   _imagePrefab: {fileID: 4756525715405579274, guid: 2201d1a6b8926858da43c8e4be66b1e1,
     type: 3}
+  _bagList:
+  - {fileID: 317263538}
+  - {fileID: 43921299}
+  - {fileID: 1443489477}
   eventSpawnCustomer:
     m_PersistentCalls:
       m_Calls: []

@@ -38,8 +38,6 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     [SerializeField] private bool _debugLog;
 
-    [SerializeField] public bool _play = false;
-
     /// <summary>
     /// List of sounds in audioManager
     /// </summary>
@@ -48,7 +46,6 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         Generate();
-        _play = true;
     }
 
     private void OnValidate()

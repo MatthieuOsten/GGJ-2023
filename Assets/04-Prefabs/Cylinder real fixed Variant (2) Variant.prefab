@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 1730789235225547858, guid: 4e1e07c903419f438a40dfb343eb6890,
         type: 3}
       propertyPath: m_Name
-      value: Cylinder real fixed Variant (2)
+      value: Cylinder real fixed Variant (2) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924182942525122986, guid: 4e1e07c903419f438a40dfb343eb6890,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5324642124901030913, guid: 4e1e07c903419f438a40dfb343eb6890,
         type: 3}
