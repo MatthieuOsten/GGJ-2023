@@ -67,6 +67,7 @@ public class Client : MonoBehaviour
             gameObject.SetActive(false);
             _timerDispawn.Restart();
             _timerDispawn.Stop();
+            Debug.Log("Dispawn " + temp);
         }
         
         if (_clock.ActualFilling <= 0)
@@ -74,6 +75,7 @@ public class Client : MonoBehaviour
             gameObject.SetActive(false);
             _timerDispawn.Restart();
             _timerDispawn.Stop();
+            Debug.Log("Dispawn");
         }
         
         if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)

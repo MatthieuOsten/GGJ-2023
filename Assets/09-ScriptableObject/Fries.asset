@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39d1faf3450f3e43b87d3b35dfec527, type: 3}
   m_Name: Fries
   m_EditorClassIdentifier: 
-  name: Sphere
-  sprite: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  name: Fries
+  sprite: {fileID: 21300000, guid: 46c42e4d934bef243a75988658c75115, type: 3}

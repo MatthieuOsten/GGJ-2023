@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39d1faf3450f3e43b87d3b35dfec527, type: 3}
   m_Name: Cup
   m_EditorClassIdentifier: 
-  name: Cube
-  sprite: {fileID: 21300000, guid: ad4dcac393f63f3468f6d9ff1652732e, type: 3}
+  name: Cup
+  sprite: {fileID: 21300000, guid: cf010d2be48cbf54a86c6f5b87ebba6f, type: 3}
