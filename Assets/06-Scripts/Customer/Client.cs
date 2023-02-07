@@ -68,7 +68,7 @@ public class Client : MonoBehaviour
             _timerDispawn.Restart();
             _timerDispawn.Stop();
         }
-
+        
         if (_clock.ActualFilling <= 0)
         {
             gameObject.SetActive(false);

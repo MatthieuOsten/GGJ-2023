@@ -104,7 +104,7 @@ public class CustomerManager : MonoBehaviour
             {
                 foreach (var customer in _transformsCustomers[j])
                 {
-                    if (customer.gameObject.activeSelf && customer.transform.position.x == _pointsOfSpawn[i].point.position.x)
+                    if (customer.gameObject.activeSelf && customer.transform.position.z == _pointsOfSpawn[i].point.position.z)
                     {
                         if (i >= _bagList.Length)
                         {
@@ -164,7 +164,6 @@ public class CustomerManager : MonoBehaviour
                     _productGenerated.Add(_products[randNb].name);
                     _images.Add(_products[randNb].sprite);
                 }
-
                 Client client = null;
 
                 if (actualCustomer.TryGetComponent<Client>(out client))
@@ -172,7 +171,7 @@ public class CustomerManager : MonoBehaviour
                     actualCustomer.GetComponent<Client>()._productGenerated = _productGenerated;
                     actualCustomer.GetComponent<Client>()._images = _images;
                 }
-
+                
                 break;
             }
         }
@@ -204,7 +203,6 @@ public class CustomerManager : MonoBehaviour
                     List<Image> _image = new List<Image>();
                     for (int k = 0; k != _nbOfImages; k++)
                     {
-                        Debug.Log("ETTD");
                         Image _temp = Instantiate(_imagePrefab,actualClient.Panel).GetComponent<Image>();
                         _image.Add(_temp);
                         _temp.gameObject.SetActive(false);
