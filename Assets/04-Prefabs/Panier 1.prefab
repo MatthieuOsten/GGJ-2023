@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda1548219da1fc4194b8405c47e81c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _productsList:
+  - Soup
+  - Fries
+  - Cup
 --- !u!65 &381347047340558116
 BoxCollider:
   m_ObjectHideFlags: 0

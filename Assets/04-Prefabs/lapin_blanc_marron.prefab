@@ -93,13 +93,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad01fdd07469e4f498f89d93595e3b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _productGenerated: []
-  _images: []
+  _productGenerated:
+  - Soup
+  - Fries
+  - Cup
+  _images:
+  - {fileID: 21300000, guid: e9694059783acf64cb958b1bed500605, type: 3}
+  - {fileID: 21300000, guid: 46c42e4d934bef243a75988658c75115, type: 3}
+  - {fileID: 21300000, guid: cf010d2be48cbf54a86c6f5b87ebba6f, type: 3}
   _panel: {fileID: 5488560608039907539}
   _timerDispawn:
     _time: 0
     _timePassed: 0
-    _timer: 0
+    _timer: 10
     _speed: 0
     _play: 0
     _finish: 0
