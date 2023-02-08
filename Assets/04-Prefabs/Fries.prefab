@@ -89,7 +89,7 @@ BoxCollider:
   m_GameObject: {fileID: 3238351676699476326}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.2738271, y: 0.17114198, z: 0.024706414}
   m_Center: {x: 0, y: -1.6694755e-18, z: 0.015507517}
@@ -104,9 +104,10 @@ GameObject:
   - component: {fileID: 4614418042591483137}
   - component: {fileID: 8989577950659242398}
   - component: {fileID: 8391093316945899446}
+  - component: {fileID: 9205658891225921273}
   m_Layer: 0
   m_Name: Fries
-  m_TagString: Untagged
+  m_TagString: Product
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,6 +157,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &9205658891225921273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423007326718250939}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2738271, y: 0.026946843, z: 0.17008047}
+  m_Center: {x: 0, y: 0.015881151, z: -0.0007762313}
 --- !u!1 &5850658733666014453
 GameObject:
   m_ObjectHideFlags: 0
