@@ -7,10 +7,6 @@ using UnityEngine;
 public class ContentBag : MonoBehaviour
 {
     public List<string> _productsList = new List<string>();
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -19,7 +15,7 @@ public class ContentBag : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 string temp = "";
-                for (int i = 0; other.gameObject.name[i] != '('; i++)
+                for (int i = 0; other.gameObject.name[i] != ' '; i++)
                 {
                     temp += other.gameObject.name[i];
                 }
@@ -30,12 +26,12 @@ public class ContentBag : MonoBehaviour
 
     public void ResetList()
     {
+        _productsList.Clear();
         _productsList = new List<string>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-
+        ResetList();
     }
 }

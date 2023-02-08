@@ -113,6 +113,8 @@ MonoBehaviour:
   _timeToDispawn: 10
   _inTheBag: []
   _bag: {fileID: 0}
+  _vfxDispear: {fileID: 7113944978344515307, guid: 30551a26b382fe843a95d181bb96bb4a,
+    type: 3}
 --- !u!1001 &8713261698033528523
 PrefabInstance:
   m_ObjectHideFlags: 0

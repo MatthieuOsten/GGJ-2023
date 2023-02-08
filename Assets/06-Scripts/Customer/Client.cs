@@ -18,6 +18,8 @@ public class Client : MonoBehaviour
     public List<string> _inTheBag = new List<string>();
     public GameObject _bag;
 
+    [SerializeField] private GameObject _vfxDispear;
+
     public Transform Panel
     {
         get
@@ -25,7 +27,7 @@ public class Client : MonoBehaviour
             return _panel;
         }
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,15 +69,12 @@ public class Client : MonoBehaviour
             gameObject.SetActive(false);
             _timerDispawn.Restart();
             _timerDispawn.Stop();
-            Debug.Log("Dispawn " + temp);
+            Debug.Log("Dispawn for image " + temp);
         }
         
         if (_clock.ActualFilling <= 0)
         {
-            gameObject.SetActive(false);
-            _timerDispawn.Restart();
-            _timerDispawn.Stop();
-            Debug.Log("Dispawn");
+            Disapear();
         }
         
         if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)
@@ -114,5 +113,18 @@ public class Client : MonoBehaviour
                 AudioManager.Instance.Play("Client_angry");
             }
         }
+    }
+
+    private void Disapear()
+    {
+        if (_vfxDispear != null)
+        {
+            Instantiate(_vfxDispear, transform.position, transform.rotation, transform.parent);
+        }
+
+        gameObject.SetActive(false);
+        _timerDispawn.Restart();
+        _timerDispawn.Stop();
+        Debug.Log("Dispawn");
     }
 }
