@@ -88,7 +88,7 @@ public class Client : MonoBehaviour
 
             for (int i = 0; i != _inTheBag.Count; i++)
             {
-                if (string.Compare(_productGenerated[i], _inTheBag[i]) == 0)
+                if (_productGenerated.Count > i && string.Compare(_productGenerated[i], _inTheBag[i]) == 0)
                 {
                     temp2++;
                     _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(false);

@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="db02d1ae-6349-4ed5-8999-3d74b84f2440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Cup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Cup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Fries.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Fries.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Soup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Soup.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Content/ContentBag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Content/ContentBag.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" afterDir="false" />
     </list>
@@ -90,6 +94,8 @@
       <workItem from="1675503668970" duration="28503000" />
       <workItem from="1675615325905" duration="2996000" />
       <workItem from="1675801348347" duration="2116000" />
+      <workItem from="1675843486652" duration="1355000" />
+      <workItem from="1675846177851" duration="4959000" />
     </task>
     <servers />
   </component>
@@ -112,5 +118,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs</url>
+          <line>102</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" initialLine="102" containingFunctionPresentation="method 'CheckInBag'">
+            <startOffsets>
+              <option value="2740" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2790" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

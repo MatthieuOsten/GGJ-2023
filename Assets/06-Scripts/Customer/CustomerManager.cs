@@ -69,7 +69,7 @@ public class CustomerManager : MonoBehaviour
             {
                 foreach (var customer in _transformsCustomers[j])
                 {
-                    if (customer.transform.position.x == _pointsOfSpawn[i].point.position.x && customer.gameObject.activeSelf)
+                    if (customer.transform.position.z == _pointsOfSpawn[i].point.position.z && customer.gameObject.activeSelf)
                     {
                         ActivateBag(i,true);
                         temp++;
@@ -118,8 +118,10 @@ public class CustomerManager : MonoBehaviour
                         {
                             ContentBag bag = theCustomer.GetComponent<ContentBag>();
 
-                            if (bag != null) { theCustomer._inTheBag = bag._productsList; }
-                            theCustomer._bag = _bagList[i];
+                            customer.GetComponent<Client>()._inTheBag = _bagList[i].GetComponent<ContentBag>()._productsList;
+                            customer.GetComponent<Client>()._bag = _bagList[i];
+                            Debug.Log("HERE");
+                            Debug.Log(theCustomer._inTheBag.Count);
                         }
 
 
