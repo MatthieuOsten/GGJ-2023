@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="db02d1ae-6349-4ed5-8999-3d74b84f2440" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ-2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Cup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Cup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Fries.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Fries.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/Soup.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/Soup.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Content/ContentBag.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Content/ContentBag.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_blanc.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_blanc.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_blanc_marron.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_blanc_marron.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_noir.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/04-Prefabs/lapin_noir.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/Client.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/06-Scripts/Customer/CustomerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../Overoots.x86_64" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.." />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Unity/Hub/Editor/2019.4.40f1/Editor/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
@@ -96,6 +105,7 @@
       <workItem from="1675801348347" duration="2116000" />
       <workItem from="1675843486652" duration="1355000" />
       <workItem from="1675846177851" duration="4959000" />
+      <workItem from="1675860760225" duration="4104000" />
     </task>
     <servers />
   </component>

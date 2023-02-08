@@ -17,6 +17,7 @@ public class Client : MonoBehaviour
     [SerializeField] private float _timeToDispawn = 10;
     public List<string> _inTheBag = new List<string>();
     public GameObject _bag;
+    private int _nb_started = 0;
 
     [SerializeField] private GameObject _vfxDispear;
 
@@ -44,73 +45,105 @@ public class Client : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int temp = 0;
-        int temp2 = 0;
-        int _isFailed = 0;
-        _timerDispawn.Update();
-        for (int i = 0; i != _images.Count; i++)
+        if (gameObject.activeSelf)
         {
-            if (_panel.GetChild(i).GetComponent<Image>().gameObject.activeSelf)
+            if (_nb_started > 0)
             {
-                temp++;
-            }
-        }
-
-        if (temp > 0)
-        {
-            if (_timerDispawn.IsPlaying == false)
-            {
-                _timerDispawn.Play();
-            }
-            _clock.ActualFilling = _timerDispawn.Time / _timeToDispawn;
-        } 
-        else
-        {
-            gameObject.SetActive(false);
-            _timerDispawn.Restart();
-            _timerDispawn.Stop();
-            Debug.Log("Dispawn for image " + temp);
-        }
-        
-        if (_clock.ActualFilling <= 0)
-        {
-            Disapear();
-        }
-        
-        if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)
-        {
-            gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit++;
-        }
-
-        if (_inTheBag.Count != 0)
-        {
-
-            for (int i = 0; i != _inTheBag.Count; i++)
-            {
-                if (_productGenerated.Count > i && string.Compare(_productGenerated[i], _inTheBag[i]) == 0)
+                for (int i = 0; i != _images.Count; i++)
                 {
-                    temp2++;
-                    _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(false);
+                    _panel.GetChild(i).GetComponent<Image>().sprite = _images[i];
+                    _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(true);
                 }
-                else
+            }
+            int temp = 0;
+            int temp2 = 0;
+            int _isFailed = 0;
+            _timerDispawn.Update();
+            for (int i = 0; i != _images.Count; i++)
+            {
+                if (_panel.GetChild(i).GetComponent<Image>().gameObject.activeSelf)
                 {
-                    _isFailed = 1;
+                    temp++;
                 }
             }
 
-            if (temp2 == _productGenerated.Count)
+            if (temp > 0)
             {
-                Debug.Log("BRAVO");
-                _productGenerated = new List<string>();
-                _bag.GetComponent<ContentBag>().ResetList();
-                AudioManager.Instance.Play("Client_Happy");
+                if (_timerDispawn.IsPlaying == false)
+                {
+                    _timerDispawn.Play();
+                }
+
+                _clock.ActualFilling = _timerDispawn.Time / _timeToDispawn;
             }
-            else if (_isFailed == 1)
+            else
             {
-                Debug.Log("RATé");
-                _productGenerated = new List<string>();
-                _bag.GetComponent<ContentBag>().ResetList();
-                AudioManager.Instance.Play("Client_angry");
+                gameObject.SetActive(false);
+                _nb_started += 1;
+                _timerDispawn.Restart();
+                _timerDispawn.Stop();
+                Debug.Log("Dispawn " + temp);
+            }
+
+            if (_clock.ActualFilling <= 0)
+            {
+                gameObject.SetActive(false);
+                _nb_started += 1;
+                _timerDispawn.Restart();
+                _timerDispawn.Stop();
+                Debug.Log("Dispawn");
+            }
+
+            if (gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit < 200)
+            {
+                gameObject.GetComponentInChildren<CanvasScaler>().referencePixelsPerUnit++;
+            }
+
+            if (_inTheBag.Count != 0)
+            {
+
+                for (int i = 0; i != _inTheBag.Count; i++)
+                {
+                    if (_productGenerated.Count > i && string.Compare(_productGenerated[i], _inTheBag[i]) == 0)
+                    {
+                        temp2++;
+                        _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        _isFailed = 1;
+                    }
+                }
+
+                if (temp2 == _productGenerated.Count)
+                {
+                    Debug.Log("BRAVO");
+                    _productGenerated = new List<string>();
+                    _bag.GetComponent<ContentBag>().ResetList();
+                    _inTheBag = new List<string>();
+                    _timerDispawn.Restart();
+                    _timerDispawn.Stop();
+                    gameObject.SetActive(false);
+                    _nb_started += 1;
+                    AudioManager.Instance.Play("Client_Happy");
+                }
+                else if (_isFailed == 1)
+                {
+                    for (int i = 0; i != _images.Count; i++)
+                    {
+                        _panel.GetChild(i).GetComponent<Image>().gameObject.SetActive(false);
+                    }
+
+                    Debug.Log("RATé");
+                    _productGenerated = new List<string>();
+                    _bag.GetComponent<ContentBag>().ResetList();
+                    _inTheBag = new List<string>();
+                    _timerDispawn.Restart();
+                    _timerDispawn.Stop();
+                    gameObject.SetActive(false);
+                    _nb_started += 1;
+                    AudioManager.Instance.Play("Client_angry");
+                }
             }
         }
     }
