@@ -16,7 +16,7 @@ public class ContentBag : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 string temp = "";
-                for (int i = 0; other.gameObject.name[i] != ' '; i++)
+                for (int i = 0; other.gameObject.name[i] != '('; i++)
                 {
                     temp += other.gameObject.name[i];
                     Debug.Log("PASSE PARE LA STP" + other.gameObject.name);
@@ -30,10 +30,5 @@ public class ContentBag : MonoBehaviour
     {
         _productsList.Clear();
         _productsList = new List<string>();
-    }
-
-    private void OnEnable()
-    {
-        ResetList();
     }
 }

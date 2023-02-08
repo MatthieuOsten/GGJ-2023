@@ -7,6 +7,34 @@ using TMPro;
 
 public class WidgetScore : MonoBehaviour
 {
+    #region SINGLETON
+
+    /// <summary>
+    ///  Force a avoir qu'un seul WidgetScore
+    /// </summary>
+    [SerializeField] private static WidgetScore _instance = null;
+
+    public static WidgetScore Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<WidgetScore>();
+                // Si vrai, l'instance va etre cree
+                if (_instance == null)
+                {
+                    var newObjectInstance = new GameObject();
+                    newObjectInstance.name = typeof(WidgetScore).ToString();
+                    _instance = newObjectInstance.AddComponent<WidgetScore>();
+                }
+            }
+            return _instance;
+        }
+    }
+
+    #endregion
+
     private float _score;
     private bool _animate_text;
     private float _timer = 0.25f;
